@@ -1,0 +1,10 @@
+{
+  "name": "SiteCheck",
+  "description": "Construction punch-list management workspace for field contractors to log defects with site photos and trade assignments.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

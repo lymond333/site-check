@@ -1,0 +1,218 @@
+import { Project, PunchItem, PunchPriority, PunchStatus, TradeDefinition } from '../types/punch';
+
+export const TRADE_DEFINITIONS: TradeDefinition[] = [
+  {
+    name: 'Electrical',
+    defaultSubcontractor: 'Voltline Electric Co.',
+    csiDivision: 'Div 26',
+  },
+  {
+    name: 'Plumbing',
+    defaultSubcontractor: 'Cascade Mechanical & Pipe',
+    csiDivision: 'Div 22',
+  },
+  {
+    name: 'HVAC',
+    defaultSubcontractor: 'Northwind Air Systems',
+    csiDivision: 'Div 23',
+  },
+  {
+    name: 'Drywall & Paint',
+    defaultSubcontractor: 'Premier Finish Interiors',
+    csiDivision: 'Div 09',
+  },
+  {
+    name: 'Carpentry & Millwork',
+    defaultSubcontractor: 'Timbercraft Architectural',
+    csiDivision: 'Div 06',
+  },
+  {
+    name: 'Flooring & Tile',
+    defaultSubcontractor: 'Stone & Surface Group',
+    csiDivision: 'Div 09',
+  },
+  {
+    name: 'Glazing & Doors',
+    defaultSubcontractor: 'ClearSpan Entry & Glass',
+    csiDivision: 'Div 08',
+  },
+  {
+    name: 'Fire & Life Safety',
+    defaultSubcontractor: 'ShieldTech Fire Protection',
+    csiDivision: 'Div 21',
+  },
+  {
+    name: 'Concrete & Masonry',
+    defaultSubcontractor: 'Bedrock Structural LLC',
+    csiDivision: 'Div 03',
+  },
+  {
+    name: 'Roofing & Exterior',
+    defaultSubcontractor: 'Crestline Envelope Systems',
+    csiDivision: 'Div 07',
+  },
+];
+
+export const INITIAL_PROJECTS: Project[] = [
+  {
+    id: 'proj-oakridge',
+    name: 'Oakridge Medical Pavilion',
+    code: 'OMP-204',
+    address: '1420 Oakridge Blvd, Suite 200',
+    superintendent: 'Marcus Vance',
+    createdAt: '2026-10-14T08:00:00.000Z',
+  },
+  {
+    id: 'proj-harborview',
+    name: 'Harborview Lofts Phase 2',
+    code: 'HVL-108',
+    address: '88 Maritime Way, Pier 4',
+    superintendent: 'Elena Rostova',
+    createdAt: '2026-10-29T08:00:00.000Z',
+  },
+];
+
+export const INITIAL_PUNCH_ITEMS: PunchItem[] = [
+  {
+    id: 'item-101',
+    code: 'PL-001',
+    projectId: 'proj-oakridge',
+    title: 'Unseated duplex receptacle & crooked mud ring',
+    description:
+      'Outlet box sits loose in the Level 2 corridor wall; cover plate hangs off the 14/2 box and drywall cutout needs clean patching around the perimeter.',
+    trade: 'Electrical',
+    subcontractor: 'Voltline Electric Co.',
+    location: 'Level 2 · West Corridor',
+    status: PunchStatus.Open,
+    priority: PunchPriority.Critical,
+    photoUrl: '/src/assets/images/punch_electrical_panel_1794982867857.jpg',
+    photoPin: { x: 58, y: 52 },
+    dueDate: '2026-11-20',
+    createdAt: '2026-11-15T14:20:00.000Z',
+    updatedAt: '2026-11-15T14:20:00.000Z',
+    notes: [
+      {
+        id: 'note-1',
+        author: 'Marcus Vance',
+        text: 'Flagged during pre-cover inspection. Needs box extension ring and torque check before wall closeout.',
+        createdAt: '2026-11-15T14:22:00.000Z',
+      },
+    ],
+  },
+  {
+    id: 'item-102',
+    code: 'PL-002',
+    projectId: 'proj-oakridge',
+    title: 'Cold water angle stop weeping at compression nut',
+    description:
+      'Visible moisture staining on drywall behind vanity supply line. Tighten or replace brass compression ferrule and re-test under 60 PSI static load.',
+    trade: 'Plumbing',
+    subcontractor: 'Cascade Mechanical & Pipe',
+    location: 'Level 2 · Exam Room 204 Restroom',
+    status: PunchStatus.Open,
+    priority: PunchPriority.Critical,
+    photoUrl: '/src/assets/images/punch_plumbing_valve_1794982867337.jpg',
+    photoPin: { x: 71, y: 56 },
+    dueDate: '2026-11-19',
+    createdAt: '2026-11-16T09:10:00.000Z',
+    updatedAt: '2026-11-16T09:10:00.000Z',
+    notes: [
+      {
+        id: 'note-2',
+        author: 'Marcus Vance',
+        text: 'Drywall moisture meter reading 22%. Replace affected gypsum section once valve holds pressure.',
+        createdAt: '2026-11-16T09:15:00.000Z',
+      },
+    ],
+  },
+  {
+    id: 'item-103',
+    code: 'PL-003',
+    projectId: 'proj-oakridge',
+    title: 'Telegraphed tape seam and frame gouge',
+    description:
+      'Vertical drywall joint next to casing shows cracking and heavy mud ridges under raking light; casing edge chipped near latch height.',
+    trade: 'Drywall & Paint',
+    subcontractor: 'Premier Finish Interiors',
+    location: 'Level 1 · Main Lobby Hallway',
+    status: PunchStatus.InReview,
+    priority: PunchPriority.Standard,
+    photoUrl: '/src/assets/images/punch_drywall_seam_1794982868516.jpg',
+    photoPin: { x: 42, y: 48 },
+    dueDate: '2026-11-22',
+    createdAt: '2026-11-14T16:40:00.000Z',
+    updatedAt: '2026-11-17T11:05:00.000Z',
+    notes: [
+      {
+        id: 'note-3',
+        author: 'Premier Finish Foreman',
+        text: 'Skim coated seam with Level 4 compound; ready for prime and paint touch-up.',
+        createdAt: '2026-11-17T11:05:00.000Z',
+      },
+    ],
+  },
+  {
+    id: 'item-104',
+    code: 'PL-004',
+    projectId: 'proj-oakridge',
+    title: 'Supply diffuser misaligned in T-bar grid',
+    description:
+      'Ceiling diffuser boot is twisted out of square leaving a 3/8-inch air bypass gap along the east T-bar flange. Re-seat hanger wires and seal plenum collar.',
+    trade: 'HVAC',
+    subcontractor: 'Northwind Air Systems',
+    location: 'Level 2 · Open Nurse Station',
+    status: PunchStatus.Open,
+    priority: PunchPriority.Standard,
+    photoUrl: '/src/assets/images/punch_hvac_grille_1794982868367.jpg',
+    photoPin: { x: 48, y: 50 },
+    dueDate: '2026-11-24',
+    createdAt: '2026-11-16T13:25:00.000Z',
+    updatedAt: '2026-11-16T13:25:00.000Z',
+    notes: [],
+  },
+  {
+    id: 'item-105',
+    code: 'PL-005',
+    projectId: 'proj-oakridge',
+    title: 'Missing hinge screws & misaligned strike latch',
+    description:
+      'Solid-core oak door Room 214 is missing 3 stainless hinge fasteners on the middle hinge leaf and deadlatch fails to seat cleanly into strike pocket.',
+    trade: 'Carpentry & Millwork',
+    subcontractor: 'Timbercraft Architectural',
+    location: 'Level 2 · Room 214 Entry',
+    status: PunchStatus.Resolved,
+    priority: PunchPriority.Standard,
+    photoUrl: '/src/assets/images/punch_door_hardware_1794982868488.jpg',
+    photoPin: { x: 59, y: 74 },
+    dueDate: '2026-11-18',
+    createdAt: '2026-11-12T10:00:00.000Z',
+    updatedAt: '2026-11-17T15:30:00.000Z',
+    notes: [
+      {
+        id: 'note-4',
+        author: 'Marcus Vance',
+        text: 'All hinge screws installed and strike lip adjusted 1/16 in. Latch cycles smoothly.',
+        createdAt: '2026-11-17T15:30:00.000Z',
+      },
+    ],
+  },
+  {
+    id: 'item-106',
+    code: 'PL-001',
+    projectId: 'proj-harborview',
+    title: 'Unfinished duplex box beside steel stud bay',
+    description:
+      'Unit 4B living room receptacle box mounted proud of framing face. Adjust bracket depth before drywall hang.',
+    trade: 'Electrical',
+    subcontractor: 'Voltline Electric Co.',
+    location: 'Floor 4 · Unit 4B Living Wall',
+    status: PunchStatus.Open,
+    priority: PunchPriority.Standard,
+    photoUrl: '/src/assets/images/punch_electrical_panel_1794982867857.jpg',
+    photoPin: { x: 64, y: 49 },
+    dueDate: '2026-11-25',
+    createdAt: '2026-11-16T15:00:00.000Z',
+    updatedAt: '2026-11-16T15:00:00.000Z',
+    notes: [],
+  },
+];
